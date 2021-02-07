@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component,useState} from 'react';
+import Person from './Person.js';
 
 function App() {
+  const [my_name,my_name_function] = useState("AUDI");
+
+  const ChangeName = () =>
+  {
+    my_name_function("BMW");
+  }
+
+  /*Using CSS Inline Type - Declare mystyle*/
+  const mystyle =
+  {
+    color:'lightpink',
+    backgroundColor:'purple',
+    textAlign:'center',
+    padding:'20px',
+    margin:'10px'
+
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 style={mystyle}>CSS - Using Inline Type</h1>
+      <hr></hr>
+    <Person name={my_name} clickable={ChangeName}>
+    </Person>
     </div>
   );
 }
